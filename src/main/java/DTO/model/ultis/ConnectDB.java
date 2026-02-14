@@ -10,7 +10,7 @@ public class ConnectDB {
     private String userName;
     private String password;;
 
-    public ConnectDB() {q
+    public ConnectDB() {
             this.hostName = "localhost";
             this.port = "1433";
             this.dbName ="ProductIntro";
