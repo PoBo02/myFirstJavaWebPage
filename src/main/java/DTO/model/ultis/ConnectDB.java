@@ -30,10 +30,12 @@ public class ConnectDB {
         this.userName = sc.getInitParameter("userName");
         this.password = sc.getInitParameter("userPass");
     }
+
     public String getUrlString() {
         String fm = "jdbc:sqlserver://%s:%s;databaseName=%s;user=%s;password=%s";
         return String.format(fm, hostName, port, dbName, userName, password);
     }
+    
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return DriverManager.getConnection(getUrlString());
