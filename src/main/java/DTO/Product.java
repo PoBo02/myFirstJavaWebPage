@@ -1,5 +1,9 @@
 package DTO;
 
+import java.sql.Date;
+
+import DTO.model.Account;
+
 public class Product {
     private String productID;
     private String productName;

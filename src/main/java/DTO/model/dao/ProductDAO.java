@@ -6,54 +6,45 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
-import DTO.model.Account;
+import DTO.Product;
 
-public class AccountDAO implements Accessable<Account> {
+public class ProductDAO implements Accessable<Product> {
     private ServletContext sc;
     private Connection con;
 
-    public AccountDAO() throws ClassNotFoundException, SQLException {
+    public ProductDAO() throws ClassNotFoundException, SQLException {
     }
 
-    public AccountDAO(ServletContext sc) throws ClassNotFoundException, SQLException {
+    public ProductDAO(ServletContext sc) throws ClassNotFoundException, SQLException {
         this.sc = sc;
     }
 
     @Override
-    public int insertRec(Account obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
-
-    }
-
-    @Override
-    public int updateRec(Account obj) {
+    public int insertRec(Product obj) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public int deleteRec(Account obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public List<Account> listAllByRole(int role) {
+    public int updateRec(Product obj) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Account getObjectById(String id) {
+    public int deleteRec(Product obj) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List<Account> listAll() {
+    public Product getObjectById(String id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public int updateIsUsed(String acc, boolean isUsed) {
+    @Override
+    public java.util.List<Product> listAll() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public Account loginSuccess(String acc, String pass) {
+    public List<Product> listByCategory(int categoryId) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
