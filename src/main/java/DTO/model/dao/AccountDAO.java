@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 
 import DTO.model.Account;
+import DTO.model.ultis.ConnectDB;
 
 public class AccountDAO implements Accessable<Account> {
     private ServletContext sc;
@@ -17,6 +18,12 @@ public class AccountDAO implements Accessable<Account> {
 
     public AccountDAO(ServletContext sc) throws ClassNotFoundException, SQLException {
         this.sc = sc;
+    }
+
+    private Connection getConnection() throws SQLException,
+            ClassNotFoundException {
+        con = new ConnectDB(sc).getConnection();
+        return con;
     }
 
     @Override
