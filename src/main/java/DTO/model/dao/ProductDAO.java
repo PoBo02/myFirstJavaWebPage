@@ -6,7 +6,8 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
-import DTO.Product;
+import DTO.model.Product;
+import DTO.model.ultis.ConnectDB;
 
 public class ProductDAO implements Accessable<Product> {
     private ServletContext sc;
@@ -17,6 +18,12 @@ public class ProductDAO implements Accessable<Product> {
 
     public ProductDAO(ServletContext sc) throws ClassNotFoundException, SQLException {
         this.sc = sc;
+    }
+
+    private Connection getConnection() throws SQLException,
+            ClassNotFoundException {
+        con = new ConnectDB(sc).getConnection();
+        return con;
     }
 
     @Override

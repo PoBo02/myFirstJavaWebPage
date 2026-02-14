@@ -1,5 +1,9 @@
 package DTO.model.ultis;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import javax.servlet.ServletContext;
 
 public class ConnectDB {
@@ -28,11 +32,11 @@ public class ConnectDB {
     }
     public String getUrlString() {
         String fm = "jdbc:sqlserver://%s:%s;databaseName=%s;user=%s;password=%s";
-        return String.format(fm, this.hostName, this.port, this.dbName, this.userName, this.password);
+        return String.format(fm, hostName, port, dbName, userName, password);
     }
-    public getConnection() throws ClassNotFoundException, SQLException {
+    public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        return DriverManager.getConnection(this.getUrlString());
+        return DriverManager.getConnection(getUrlString());
     }
 
 }
