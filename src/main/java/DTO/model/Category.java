@@ -1,4 +1,4 @@
-package DTO;
+package DTO.model;
 
 public class Category {
     private int typeID;
