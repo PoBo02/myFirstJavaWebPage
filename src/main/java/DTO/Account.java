@@ -4,32 +4,33 @@
  */
 package DTO;
 
+import java.sql.Date;
+
 /**
  *
  * @author Ad
  */
 public class Account {
-   
-   
+
     private String account;
     private String pass;
     private String lastName;
-    private String FristName;
+    private String firstTime;
     private Date birthday;
     private boolean gender;
     private String phone;
     private boolean isUsed;
-    private int roleSystem;
+    private int roleInSystem;
 
     public Account() {
     }
 
-    public Account(String account, String pass, String lastName, String FristName, Date birthday, boolean gender,
+    public Account(String account, String pass, String lastName, String firstTime, Date birthday, boolean gender,
             String phone, boolean isUsed, int roleInSystem) {
         this.account = account;
         this.pass = pass;
         this.lastName = lastName;
-        this.FristName = FristName;
+        this.firstTime = firstTime;
         this.birthday = birthday;
         this.gender = gender;
         this.phone = phone;
@@ -61,12 +62,12 @@ public class Account {
         this.lastName = lastName;
     }
 
-    public String getFristName() {
-        return FristName;
+    public String getFirstTime() {
+        return firstTime;
     }
 
-    public void setFristName(String FristName) {
-        this.FristName = FristName;
+    public void setFirstTime(String firstTime) {
+        this.firstTime = firstTime;
     }
 
     public Date getBirthday() {
