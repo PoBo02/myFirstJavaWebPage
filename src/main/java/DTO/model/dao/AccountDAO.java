@@ -49,7 +49,7 @@ public class AccountDAO implements Accessable<Account> {
                 return kq;
 
             } else {
-                throw new  SQLException();
+                throw new SQLException();
             }
 
         } catch (SQLException | ClassNotFoundException e) {
@@ -141,12 +141,54 @@ public class AccountDAO implements Accessable<Account> {
 
     @Override
     public Account getObjectById(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String sql = "Select * From Account Where account= ?";
+        try (Connection con = new Connection();
+                PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new Account(rs.getString("account"),
+                        rs.getString("pass"),
+                        rs.getString("lastName"),
+                        rs.getString("firstName"),
+                        rs.getDate("birthday"),
+                        rs.getBoolean("gender"),
+                        rs.getString("phone"),
+                        rs.getBoolean("isUsed"),
+                        rs.getInt("roleInSystem"));
+x   
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public List<Account> listAll() {
-        throw new UnsupportedOperationException("Not supported yet.");
+String sql = "Select * From Account";
+        List<Account> list = new ArrayList<>();
+        try (Connection con = getConnection();
+                PreparedStatement ps = con.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                list.add(new Account(
+                        rs.getString("account"),
+                        rs.getString("pass"),
+                        rs.getString("lastName"),
+                        rs.getString("firstName"),
+                        rs.getDate("birthday"),
+                        rs.getBoolean("gender"),
+                        rs.getString("phone"),
+                        rs.getBoolean("isUsed"),
+                        rs.getInt("roleInSystem")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
     public int updateIsUsed(String acc, boolean isUsed) {
