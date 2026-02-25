@@ -10,7 +10,7 @@
     <h1>Hello User</h1>
 
     <div class="container">
-        <form action="account/login" method="post">
+        <form action="${pageContext.request.contextPath}/account/login" method="post">
          <input type="text" name="account" placeholder="Username" required>
          <input type="text" name="pass" placeholder="Password" required>
          <button type="submit">Login</button>

@@ -3,6 +3,7 @@ package DTO.model.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import DTO.model.Account;
 import DTO.model.dao.AccountDAO;
 
+@WebServlet("/account/login")
 public class AccountServlet extends HttpServlet {
     private AccountDAO accountDAO;
 
@@ -49,7 +51,7 @@ public class AccountServlet extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
         } else {
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
+            request.getRequestDispatcher("webapp/Login.jsp").forward(request, response);
         }
 
     }
