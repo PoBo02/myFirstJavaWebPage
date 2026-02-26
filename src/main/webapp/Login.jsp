@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Login</title>
 </head>
 <body>
     
-    <h1>Hello User</h1>
-
     <div class="container">
-        <form action="${pageContext.request.contextPath}/account/login" method="post">
-         <input type="text" name="account" placeholder="Username" required>
-         <input type="text" name="pass" placeholder="Password" required>
-         <button type="submit">Login</button>
+        <h1>Login</h1>
+
+        
+
+        <form action="${pageContext.request.contextPath}/AccountServlet" method="post">
+            <input type="text" name="account" placeholder="Username" required>
+            <input type="password" name="pass" placeholder="Password" required>
+            <button type="submit">Login</button>
         </form>
     </div>
-    
 </body>
 </html>
